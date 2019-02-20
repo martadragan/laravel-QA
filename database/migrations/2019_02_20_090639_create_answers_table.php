@@ -15,14 +15,14 @@ class CreateAnswersTable extends Migration
     {
         Schema::create('answers', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('user_id', 30);
-            $table->char('question_id', 30);
+            $table->unsignedInteger('user_id', 30);
+            $table->unsignedInteger('question_id');
             $table->text('text');
             $table->timestamps();
         });
     }
 
-  
+
     /**
      * Reverse the migrations.
      *

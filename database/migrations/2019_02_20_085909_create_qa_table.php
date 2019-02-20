@@ -15,7 +15,7 @@ class CreateQaTable extends Migration
     {
         Schema::create('qa', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('user_id', 30);
+            $table->unsignedInteger('user_id');
             $table->string('title');
             $table->text('description');
             $table->timestamps();
