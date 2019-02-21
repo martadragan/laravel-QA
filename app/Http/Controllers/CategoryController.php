@@ -14,8 +14,9 @@ class CategoryController extends Controller
         $view = view('categories.index', [
             'categories' => $categories
         ]);
+       
 
-        return $view;
+        
     }
 }
 

@@ -20,17 +20,20 @@ class QuestionController extends Controller
         // dd($question);
         $all_qa = Question::orderBy('title', 'desc')->get();
         $all_qa = Question::where('id', 1)->get();
-        dd($all_qa);
+        // dd($all_qa);
+        $view = view('questions/index');
+        return $view;
 
     }
 
     public function show()
     {
         $result_show = DB::table('answers')->where('question_id', 1)->oldest()->get();
-        dd($result_show);
+        // dd($result_show);
         $test = DB::table('qa')->where('id', '=', 1)->first();
-        dd($test);
-        return 'This is a detail of a question';
+        // dd($test);
+        $view = view('questions/show');
+        return $view;
 
         // $answer = Answer::find(1);
         // $answer = Answer::
