@@ -16,4 +16,7 @@ Route::get('/questions', 'QuestionController@index');
 Route::get('/questions/{id}', 'QuestionController@show');
 Route::get('/categories', 'CategoryController@index');
 Route::get('/dogs', 'DogController@index');
+Route::post('/dogs', 'DogController@store');
+Route::get('/dogs/create', 'DogController@create');
+
 
