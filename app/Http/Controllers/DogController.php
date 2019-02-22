@@ -10,15 +10,12 @@ class DogController extends Controller
     {
         $dogs = Dog::all();
 
-        // how to insert from hard coded by Elequent!!
-        $dog = new Dog;
-        $dog->name = 'Pysia';
-        $dog->breed = 'Kundel';
-        $dog->age = 5;
-        $dog->save();
-
-
-
+        // how to insert  hard coded by Elequent!!
+        // $dog = new Dog;
+        // $dog->name = 'Pysia';
+        // $dog->breed = 'Kundel';
+        // $dog->age = 5;
+        // $dog->save();
         // return $dogs;
 
         return view('dogs.index', ['dogs' => $dogs]);
@@ -29,6 +26,7 @@ class DogController extends Controller
     {
         return view('dogs.create');
     }
+
 
     public function store()
     {
@@ -42,5 +40,33 @@ class DogController extends Controller
         $dog->save();
         return redirect('/dogs');
 
+    }
+
+    public function edit($id)
+    {
+        $dog = Dog::find($id);
+        return view('dogs.edit', compact('dog'));
+    }
+
+    public function update($id)
+    {
+        $dog = Dog::find($id);
+
+        $dog->name = request('name');
+        $dog->breed = request('breed');
+        $dog->age = request('age');
+
+        $dog->save();
+
+        return redirect('/dogs');
+        // dd(request()->all());
+    }
+
+    public function destroy($id)
+    {
+        // Dog::find($id)->delete();
+        Dog::findOrFail($id)->delete();
+
+        return redirect('/dogs');
     }
 }
