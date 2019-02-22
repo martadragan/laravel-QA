@@ -12,15 +12,15 @@
 */
 
 
-// Route::get('/questions', 'QuestionController@index');
+Route::get('/questions', 'QuestionController@index');
 
-// Route::get('/questions/{id}', 'QuestionController@show');
+// Route::get('/questions/{id}', 'QuestionController@sho    w')->name('question.show');
 // Route::get('/categories', 'CategoryController@index');
-Route::resource('questions', 'QuestionController');
-Route::resource('categories', 'CategoryController');
 Route::resource('/dogs', 'DogController');
-// Route::get('/dogs', 'DogController@index');
-// Route::post('/dogs', 'DogController@store');
-// Route::get('/dogs/create', 'DogController@create');
+Route::resource('/answers/{id}', 'AnswerController');
+// Route::get('/answers/{id}', 'AnswerController@show');
+// Route::post('/answers/{id}', 'AnswerController@vote')->name('save');
+
+
 
 

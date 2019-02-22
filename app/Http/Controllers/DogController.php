@@ -44,13 +44,13 @@ class DogController extends Controller
 
     public function edit($id)
     {
-        $dog = Dog::find($id);
+        $dog = Dog::findOrFail($id);
         return view('dogs.edit', compact('dog'));
     }
 
     public function update($id)
     {
-        $dog = Dog::find($id);
+        $dog = Dog::findOrFail($id);
 
         $dog->name = request('name');
         $dog->breed = request('breed');

@@ -26,13 +26,15 @@ class QuestionController extends Controller
 
     }
 
-    public function show()
+    public function show($id)
     {
-        $result_show = DB::table('answers')->where('question_id', 1)->oldest()->get();
+        // $result_show = DB::table('answers')->where('question_id', 1)->oldest()->get();
         // dd($result_show);
-        $test = DB::table('qa')->where('id', '=', 1)->first();
+        // $test = DB::table('qa')->where('id', '=', 1)->first();
         // dd($test);
-        $view = view('questions/show');
+
+        $question = Question::findOrFail($id);
+        $view = view('questions/show', compact('question'));
         return $view;
 
         // $answer = Answer::find(1);
